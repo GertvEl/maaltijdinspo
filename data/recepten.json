@@ -1,0 +1,406 @@
+[
+  {
+    "id": "pasta_pesto_kip",
+    "naam": "Pasta Pesto met Kip",
+    "categorie": "kip",
+    "kooktijd_min": 15,
+    "porties": 2,
+    "vegetarisch": false,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {"product": "volkoren penne", "hoeveelheid": 160, "eenheid": "g", "categorie": "pasta", "groente": false, "biologisch": false},
+      {"product": "kipfilet", "hoeveelheid": 250, "eenheid": "g", "categorie": "vlees", "groente": false, "biologisch": true},
+      {"product": "groene pesto", "hoeveelheid": 80, "eenheid": "g", "categorie": "saus", "groente": false, "biologisch": false},
+      {"product": "broccoli", "hoeveelheid": 250, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false},
+      {"product": "cherrytomaten", "hoeveelheid": 150, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false}
+    ],
+    "stappen": [
+      "Kook de penne volgens de verpakking; voeg de laatste 4 minuten de broccoliroosjes toe.",
+      "Bak de in blokjes gesneden kipfilet in 6-7 minuten gaar.",
+      "Meng pasta, broccoli, kip, pesto en gehalveerde cherrytomaten.",
+      "Breng op smaak met peper en zout."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": ""
+  },
+  {
+    "id": "zalm_diepvriesgroente",
+    "naam": "Gebakken Zalm met Roergebakken Groente",
+    "categorie": "zalm",
+    "kooktijd_min": 20,
+    "porties": 2,
+    "vegetarisch": false,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {"product": "zalmfilet", "hoeveelheid": 250, "eenheid": "g", "categorie": "vis", "groente": false, "biologisch": false},
+      {"product": "wokgroente (diepvries)", "hoeveelheid": 400, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false},
+      {"product": "basmatirijst", "hoeveelheid": 150, "eenheid": "g", "categorie": "overig", "groente": false, "biologisch": false},
+      {"product": "sojasaus", "hoeveelheid": 30, "eenheid": "ml", "categorie": "saus", "groente": false, "biologisch": false},
+      {"product": "olijfolie", "hoeveelheid": 15, "eenheid": "ml", "categorie": "overig", "groente": false, "biologisch": false}
+    ],
+    "stappen": [
+      "Kook de rijst.",
+      "Bak de zalmfilet 3-4 minuten per kant.",
+      "Roerbak de wokgroente met sojasaus 6-8 minuten.",
+      "Serveer de zalm op de groente met rijst."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": ""
+  },
+  {
+    "id": "veg_lasagne",
+    "naam": "Vegetarische Lasagne",
+    "categorie": "vegetarisch",
+    "kooktijd_min": 25,
+    "porties": 2,
+    "vegetarisch": true,
+    "groente_hoofdingredient": true,
+    "ingredienten": [
+      {"product": "lasagnebladen", "hoeveelheid": 6, "eenheid": "stuk", "categorie": "pasta", "groente": false, "biologisch": false},
+      {"product": "courgette", "hoeveelheid": 200, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": true},
+      {"product": "paprika", "hoeveelheid": 150, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false},
+      {"product": "passata (tomatensaus)", "hoeveelheid": 300, "eenheid": "g", "categorie": "saus", "groente": false, "biologisch": false},
+      {"product": "spinazie", "hoeveelheid": 150, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false},
+      {"product": "geraspte kaas", "hoeveelheid": 100, "eenheid": "g", "categorie": "zuivel", "groente": false, "biologisch": false}
+    ],
+    "stappen": [
+      "Bak courgette en paprika kort aan.",
+      "Meng met passata en spinazie.",
+      "Laagjes maken: saus, lasagneblad, herhalen; eindig met kaas.",
+      "Oven 200°C, ca. 20 minuten."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": ""
+  },
+  {
+    "id": "rund_stamppot",
+    "naam": "Snelle Boerenkoolstamppot met Rundergehakt",
+    "categorie": "rund",
+    "kooktijd_min": 25,
+    "porties": 2,
+    "vegetarisch": false,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {"product": "kruimige aardappel", "hoeveelheid": 400, "eenheid": "g", "categorie": "overig", "groente": false, "biologisch": false},
+      {"product": "boerenkool (vers)", "hoeveelheid": 400, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false},
+      {"product": "rundergehakt", "hoeveelheid": 250, "eenheid": "g", "categorie": "vlees", "groente": false, "biologisch": true},
+      {"product": "melk", "hoeveelheid": 50, "eenheid": "ml", "categorie": "zuivel", "groente": false, "biologisch": false},
+      {"product": "mosterd", "hoeveelheid": 15, "eenheid": "g", "categorie": "saus", "groente": false, "biologisch": false}
+    ],
+    "stappen": [
+      "Kook de aardappels gaar; voeg de laatste 5 min boerenkool toe.",
+      "Bak het rundergehakt rul en kruidig.",
+      "Stamp aardappel en boerenkool met melk en mosterd.",
+      "Meng het gehakt erdoor."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": ""
+  },
+  {
+    "id": "kabeljauw_oven",
+    "naam": "Kabeljauw uit de Oven met Mediterrane Groente",
+    "categorie": "kabeljauw",
+    "kooktijd_min": 25,
+    "porties": 2,
+    "vegetarisch": false,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {"product": "kabeljauwfilet", "hoeveelheid": 250, "eenheid": "g", "categorie": "vis", "groente": false, "biologisch": false},
+      {"product": "courgette", "hoeveelheid": 200, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false},
+      {"product": "rode ui", "hoeveelheid": 100, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false},
+      {"product": "cherrytomaten", "hoeveelheid": 150, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false},
+      {"product": "olijfolie", "hoeveelheid": 20, "eenheid": "ml", "categorie": "overig", "groente": false, "biologisch": false},
+      {"product": "Italiaanse kruiden", "hoeveelheid": 5, "eenheid": "g", "categorie": "kruiden", "groente": false, "biologisch": false}
+    ],
+    "stappen": [
+      "Snijd groente, meng met olie en kruiden in een ovenschaal.",
+      "Oven 200°C, 12 minuten voorbakken.",
+      "Leg de kabeljauw erop, nog 10-12 minuten in de oven."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": ""
+  },
+  {
+    "id": "pasta_arrabiata",
+    "naam": "Pasta Arrabiata met Groente",
+    "categorie": "pasta",
+    "kooktijd_min": 15,
+    "porties": 2,
+    "vegetarisch": true,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {"product": "spaghetti", "hoeveelheid": 160, "eenheid": "g", "categorie": "pasta", "groente": false, "biologisch": false},
+      {"product": "passata (tomatensaus)", "hoeveelheid": 300, "eenheid": "g", "categorie": "saus", "groente": false, "biologisch": false},
+      {"product": "paprika", "hoeveelheid": 200, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false},
+      {"product": "courgette", "hoeveelheid": 200, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false},
+      {"product": "knoflook", "hoeveelheid": 10, "eenheid": "g", "categorie": "groente", "groente": false, "biologisch": false},
+      {"product": "chilivlokken", "hoeveelheid": 3, "eenheid": "g", "categorie": "kruiden", "groente": false, "biologisch": false}
+    ],
+    "stappen": [
+      "Kook de spaghetti.",
+      "Bak knoflook, paprika en courgette aan.",
+      "Voeg passata en chilivlokken toe, laat 5 min pruttelen.",
+      "Meng met de pasta."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": ""
+  },
+  {
+    "id": "kip_teriyaki",
+    "naam": "Kip Teriyaki met Sperziebonen",
+    "categorie": "kip",
+    "kooktijd_min": 20,
+    "porties": 2,
+    "vegetarisch": false,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {"product": "kipdijfilet", "hoeveelheid": 250, "eenheid": "g", "categorie": "vlees", "groente": false, "biologisch": false},
+      {"product": "sperziebonen (diepvries)", "hoeveelheid": 250, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false},
+      {"product": "wortel", "hoeveelheid": 150, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false},
+      {"product": "teriyakisaus", "hoeveelheid": 50, "eenheid": "ml", "categorie": "saus", "groente": false, "biologisch": false},
+      {"product": "rijst", "hoeveelheid": 150, "eenheid": "g", "categorie": "overig", "groente": false, "biologisch": false}
+    ],
+    "stappen": [
+      "Kook de rijst.",
+      "Bak de kip, voeg wortel en sperziebonen toe.",
+      "Voeg teriyakisaus toe en laat 3-4 min karamelliseren.",
+      "Serveer met rijst."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": ""
+  },
+  {
+    "id": "veg_curry",
+    "naam": "Snelle Kikkererwten-Spinaziecurry",
+    "categorie": "vegetarisch",
+    "kooktijd_min": 15,
+    "porties": 2,
+    "vegetarisch": true,
+    "groente_hoofdingredient": true,
+    "ingredienten": [
+      {"product": "kikkererwten", "hoeveelheid": 250, "eenheid": "g", "categorie": "overig", "groente": false, "biologisch": false},
+      {"product": "spinazie (diepvries)", "hoeveelheid": 300, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false},
+      {"product": "kokosmelk", "hoeveelheid": 200, "eenheid": "ml", "categorie": "overig", "groente": false, "biologisch": false},
+      {"product": "currypasta", "hoeveelheid": 30, "eenheid": "g", "categorie": "saus", "groente": false, "biologisch": false},
+      {"product": "ui", "hoeveelheid": 100, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false}
+    ],
+    "stappen": [
+      "Fruit de ui, voeg currypasta toe.",
+      "Voeg kikkererwten en kokosmelk toe, laat 5 min pruttelen.",
+      "Roer de spinazie erdoor tot geslonken.",
+      "Serveer met naan of rijst."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": ""
+  },
+  {
+    "id": "rund_wrap",
+    "naam": "Mexicaanse Wraps met Rundvlees",
+    "categorie": "rund",
+    "kooktijd_min": 20,
+    "porties": 2,
+    "vegetarisch": false,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {"product": "tortillawraps", "hoeveelheid": 4, "eenheid": "stuk", "categorie": "overig", "groente": false, "biologisch": false},
+      {"product": "rundergehakt", "hoeveelheid": 250, "eenheid": "g", "categorie": "vlees", "groente": false, "biologisch": false},
+      {"product": "paprika", "hoeveelheid": 200, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false},
+      {"product": "mais", "hoeveelheid": 100, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false},
+      {"product": "ijsbergsla", "hoeveelheid": 100, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false},
+      {"product": "taco-kruidenmix", "hoeveelheid": 20, "eenheid": "g", "categorie": "kruiden", "groente": false, "biologisch": false}
+    ],
+    "stappen": [
+      "Bak het gehakt met de kruidenmix.",
+      "Bak de paprika kort mee, voeg mais toe.",
+      "Verwarm de wraps.",
+      "Vul met vlees, groente en sla."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": ""
+  },
+  {
+    "id": "zalm_pasta",
+    "naam": "Romige Pasta met Zalm en Broccoli",
+    "categorie": "zalm",
+    "kooktijd_min": 20,
+    "porties": 2,
+    "vegetarisch": false,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {"product": "tagliatelle", "hoeveelheid": 160, "eenheid": "g", "categorie": "pasta", "groente": false, "biologisch": false},
+      {"product": "zalmfilet", "hoeveelheid": 200, "eenheid": "g", "categorie": "vis", "groente": false, "biologisch": false},
+      {"product": "broccoli", "hoeveelheid": 300, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false},
+      {"product": "kookroom", "hoeveelheid": 150, "eenheid": "ml", "categorie": "zuivel", "groente": false, "biologisch": false},
+      {"product": "citroen", "hoeveelheid": 1, "eenheid": "stuk", "categorie": "fruit", "groente": false, "biologisch": false}
+    ],
+    "stappen": [
+      "Kook de tagliatelle met broccoli.",
+      "Bak de zalm en plaag uit elkaar.",
+      "Voeg room en citroensap toe.",
+      "Meng alles."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": ""
+  },
+  {
+    "id": "veg_soep",
+    "naam": "Italiaanse Minestronesoep",
+    "categorie": "vegetarisch",
+    "kooktijd_min": 25,
+    "porties": 2,
+    "vegetarisch": true,
+    "groente_hoofdingredient": true,
+    "ingredienten": [
+      {"product": "soepgroente (vers)", "hoeveelheid": 400, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false},
+      {"product": "witte bonen", "hoeveelheid": 200, "eenheid": "g", "categorie": "overig", "groente": false, "biologisch": false},
+      {"product": "passata (tomatensaus)", "hoeveelheid": 200, "eenheid": "g", "categorie": "saus", "groente": false, "biologisch": false},
+      {"product": "kleine pasta (ditalini)", "hoeveelheid": 80, "eenheid": "g", "categorie": "pasta", "groente": false, "biologisch": false},
+      {"product": "groentebouillon", "hoeveelheid": 500, "eenheid": "ml", "categorie": "overig", "groente": false, "biologisch": false}
+    ],
+    "stappen": [
+      "Breng bouillon met soepgroente aan de kook.",
+      "Voeg passata en bonen toe.",
+      "Kook de pasta mee tot gaar.",
+      "Breng op smaak."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": ""
+  },
+  {
+    "id": "kip_traybake",
+    "naam": "Kip Traybake met Mediterrane Groente",
+    "categorie": "kip",
+    "kooktijd_min": 30,
+    "porties": 2,
+    "vegetarisch": false,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {"product": "kipfilet", "hoeveelheid": 250, "eenheid": "g", "categorie": "vlees", "groente": false, "biologisch": true},
+      {"product": "aubergine", "hoeveelheid": 200, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false},
+      {"product": "paprika", "hoeveelheid": 200, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false},
+      {"product": "rode ui", "hoeveelheid": 100, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false},
+      {"product": "olijfolie", "hoeveelheid": 20, "eenheid": "ml", "categorie": "overig", "groente": false, "biologisch": false},
+      {"product": "Italiaanse kruiden", "hoeveelheid": 5, "eenheid": "g", "categorie": "kruiden", "groente": false, "biologisch": false}
+    ],
+    "stappen": [
+      "Snijd alles in stukken, meng met olie en kruiden.",
+      "Verdeel over een bakplaat.",
+      "Oven 200°C, ca. 25 minuten."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": ""
+  },
+  {
+    "id": "kabeljauw_stoof",
+    "naam": "Kabeljauw in Tomatensaus met Spinazie",
+    "categorie": "kabeljauw",
+    "kooktijd_min": 20,
+    "porties": 2,
+    "vegetarisch": false,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {"product": "kabeljauwfilet", "hoeveelheid": 250, "eenheid": "g", "categorie": "vis", "groente": false, "biologisch": false},
+      {"product": "passata (tomatensaus)", "hoeveelheid": 250, "eenheid": "g", "categorie": "saus", "groente": false, "biologisch": false},
+      {"product": "spinazie", "hoeveelheid": 200, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false},
+      {"product": "ui", "hoeveelheid": 100, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false},
+      {"product": "knoflook", "hoeveelheid": 10, "eenheid": "g", "categorie": "groente", "groente": false, "biologisch": false}
+    ],
+    "stappen": [
+      "Fruit ui en knoflook.",
+      "Voeg passata toe, laat 5 min pruttelen.",
+      "Leg de kabeljauw erin, laat 8-10 min garen.",
+      "Roer spinazie er op het laatst door."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": ""
+  },
+  {
+    "id": "pasta_groente_ovenschotel",
+    "naam": "Pasta-ovenschotel met Veel Groente",
+    "categorie": "pasta",
+    "kooktijd_min": 30,
+    "porties": 2,
+    "vegetarisch": true,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {"product": "penne", "hoeveelheid": 160, "eenheid": "g", "categorie": "pasta", "groente": false, "biologisch": false},
+      {"product": "courgette", "hoeveelheid": 200, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false},
+      {"product": "champignons", "hoeveelheid": 150, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false},
+      {"product": "spinazie", "hoeveelheid": 100, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false},
+      {"product": "passata (tomatensaus)", "hoeveelheid": 300, "eenheid": "g", "categorie": "saus", "groente": false, "biologisch": false},
+      {"product": "mozzarella", "hoeveelheid": 100, "eenheid": "g", "categorie": "zuivel", "groente": false, "biologisch": false}
+    ],
+    "stappen": [
+      "Kook de penne beetgaar.",
+      "Bak courgette en champignons aan, voeg spinazie en passata toe.",
+      "Meng met pasta, doe in een schaal, beleg met mozzarella.",
+      "Oven 200°C, ca. 15 minuten."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": ""
+  },
+  {
+    "id": "kip_pesto_laag",
+    "naam": "Snelle Kip met Aardappel (weinig groente)",
+    "categorie": "kip",
+    "kooktijd_min": 15,
+    "porties": 2,
+    "vegetarisch": false,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {"product": "kipfilet", "hoeveelheid": 250, "eenheid": "g", "categorie": "vlees", "groente": false, "biologisch": false},
+      {"product": "krieltjes", "hoeveelheid": 300, "eenheid": "g", "categorie": "overig", "groente": false, "biologisch": false},
+      {"product": "doperwten (diepvries)", "hoeveelheid": 120, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false},
+      {"product": "kruidenboter", "hoeveelheid": 20, "eenheid": "g", "categorie": "zuivel", "groente": false, "biologisch": false}
+    ],
+    "stappen": [
+      "Bak de krieltjes.",
+      "Bak de kip gaar.",
+      "Kook de doperwten kort.",
+      "Serveer samen met kruidenboter."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": ""
+  },
+  {
+    "id": "rund_pasta_bolognese",
+    "naam": "Pasta Bolognese met Verstopte Groente",
+    "categorie": "rund",
+    "kooktijd_min": 25,
+    "porties": 2,
+    "vegetarisch": false,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {"product": "spaghetti", "hoeveelheid": 160, "eenheid": "g", "categorie": "pasta", "groente": false, "biologisch": false},
+      {"product": "rundergehakt", "hoeveelheid": 250, "eenheid": "g", "categorie": "vlees", "groente": false, "biologisch": false},
+      {"product": "passata (tomatensaus)", "hoeveelheid": 300, "eenheid": "g", "categorie": "saus", "groente": false, "biologisch": false},
+      {"product": "wortel", "hoeveelheid": 150, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false},
+      {"product": "ui", "hoeveelheid": 100, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false},
+      {"product": "champignons", "hoeveelheid": 150, "eenheid": "g", "categorie": "groente", "groente": true, "biologisch": false}
+    ],
+    "stappen": [
+      "Fruit ui, voeg geraspte wortel en champignons toe.",
+      "Bak het gehakt rul.",
+      "Voeg passata toe, laat 10 min pruttelen.",
+      "Serveer met de spaghetti."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": ""
+  }
+]
