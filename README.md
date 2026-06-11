@@ -57,6 +57,33 @@ De app zelf is een website; om hem zonder je eigen pc te gebruiken moet hij erge
 
 ---
 
+## 👨‍👩‍👧 Delen met je huishouden + permanente opslag
+
+Iedereen met de app-link gebruikt **dezelfde app en dezelfde data** — delen werkt dus meteen. Het enige probleem op de gratis Streamlit-hosting: bij een herstart van de app (na een slaapje of update) gaat runtime-data zoals 📌 weekfavorieten verloren.
+
+De oplossing zit ingebouwd: de app kan zijn weekfavorieten en ⭐ favorieten **opslaan in jouw eigen GitHub-repository** (op een aparte `data`-branch, zodat een save géén herstart van de app veroorzaakt). Eén keer instellen, ±5 minuten:
+
+1. **Maak een toegangssleutel (token) aan op GitHub:** profielfoto → **Settings** → helemaal onderaan **Developer settings** → **Personal access tokens** → **Fine-grained tokens** → **Generate new token**.
+   - Naam: `maaltijdinspo`
+   - Expiration: kies bijv. 1 jaar
+   - Repository access: **Only select repositories** → kies `maaltijdinspo`
+   - Permissions → Repository permissions → **Contents: Read and write**
+   - Klik **Generate token** en **kopieer de code** (begint met `github_pat_...`) — je ziet hem maar één keer!
+2. **Geef de sleutel aan de app:** ga naar share.streamlit.io → je app → menu (⋮) → **Settings** → **Secrets** → plak dit (met jouw eigen token):
+
+   ```toml
+   [github]
+   token = "github_pat_JOUW_TOKEN_HIER"
+   repo = "GertvEl/maaltijdinspo"
+   branch = "data"
+   ```
+
+3. Klik **Save**. De app herstart en op de 📌 Week-pagina staat nu "☁️ Gedeelde opslag actief".
+
+**Belangrijk:** de token komt zo in de afgeschermde kluis van Streamlit terecht, **nooit in de code** — zet hem dus ook nooit in een bestand in je repository. Wijzigingen van huisgenoten verschijnen binnen een minuut bij de ander; als twee mensen exact tegelijk opslaan, wint de laatste.
+
+---
+
 ## Wekelijks automatisch draaien (cron, alleen lokaal)
 
 ```cron

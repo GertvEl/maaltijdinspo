@@ -21,6 +21,7 @@ import config
 from src import recepten as recepten_mod
 from src import maaltijd_generator, boodschappenlijst, scraping, validatie, receptsites
 from src import opslag as opslag_mod
+from src import gedeelde_opslag
 
 # --------------------------------------------------------------------------
 # Pagina-instellingen + donker thema (custom CSS bovenop config.toml)
@@ -29,7 +30,7 @@ st.set_page_config(
     layout="wide",
     page_title=config.APP_NAAM,
     page_icon="🍽️",
-    initial_sidebar_state="expanded",
+    initial_sidebar_state="collapsed",
 )
 
 st.markdown(
@@ -59,42 +60,46 @@ st.markdown(
 # Sessiestatus
 # --------------------------------------------------------------------------
 if "weekmenu" not in st.session_state:
-    st.session_state.weekmenu = recepten_mod.laad_selectie() or []
-if "selectie" not in st.session_state:
-    st.session_state.selectie = set()
+    st.session_state.weekmenu = recepten_mod.laad_weekmenu() or []
+if "afgevinkt" not in st.session_state:
+    st.session_state.afgevinkt = set()
 
 
-def _toon_recept_kaart(recept: dict, index: int, selecteerbaar: bool = True) -> None:
-    """Render één receptkaart met groentebadge, biologisch-status en knoppen."""
+def _toon_recept_kaart(recept: dict, index: int, met_pin: bool = True) -> None:
+    """Render één receptkaart: afbeelding, badges, bronlink, ⭐ en 📌."""
+    from urllib.parse import quote_plus
+
     naam = recept.get("naam", "Onbekend")
     groente = recept.get("groente_per_persoon", round(validatie.groente_gram_per_persoon(recept)))
     kooktijd = recept.get("kooktijd_min", "?")
     bio = any(i.get("biologisch") for i in recept.get("ingredienten", []))
     bron = recept.get("bron", "Lokaal")
-    bron_url = recept.get("bron_url", "")
+    bron_url = str(recept.get("bron_url", "")).strip()
 
     with st.container():
         st.markdown('<div class="recept-kaart">', unsafe_allow_html=True)
-        kol1, kol2 = st.columns([4, 1])
+        kol1, kol2 = st.columns([5, 1])
         with kol1:
             fav_badge = " ⭐" if recept.get("is_favoriet_bron") else ""
             st.markdown(f"### {naam}{fav_badge}")
-            # Afbeelding van de bronwebsite (indien beschikbaar).
             afbeelding = str(recept.get("afbeelding_url", "")).strip()
             if afbeelding.startswith("http"):
                 try:
                     st.image(afbeelding, width=320)
                 except Exception:
                     pass  # kapotte afbeeldings-URL mag de kaart niet breken
-            porties = recept.get("porties", "")
-            porties_txt = f" &nbsp;·&nbsp; 👨‍👩‍👧 {porties} porties" if porties else ""
-            bio_html = '<span class="bio-ja">✅ biologisch</span>' if bio else '<span class="bio-nee">❌ niet-bio</span>'
-            bron_html = f'<a class="bron" href="{bron_url}" target="_blank">{bron}</a>' if bron_url else f'<span class="bron">{bron}</span>'
+            # Bronlink: naar de receptsite, of anders een nette zoeklink.
+            if bron_url.startswith("http"):
+                bron_html = f'<a class="bron" href="{bron_url}" target="_blank">📖 {bron} ↗</a>'
+            else:
+                zoek = quote_plus(f"{naam} recept")
+                bron_html = (f'<a class="bron" href="https://www.google.com/search?q={zoek}" '
+                             f'target="_blank">🔍 zoek dit recept online ↗</a>')
+            bio_chip = ' &nbsp;·&nbsp; 🌱 bio' if bio else ''
             st.markdown(
                 f'⏱️ {kooktijd} min &nbsp;·&nbsp; '
                 f'<span class="groente-badge">🥦 {groente} g groente/pers.</span>'
-                f'{porties_txt} &nbsp;·&nbsp; '
-                f'{bio_html} &nbsp;·&nbsp; {bron_html}',
+                f'{bio_chip} &nbsp;·&nbsp; {bron_html}',
                 unsafe_allow_html=True,
             )
             if recept.get("is_aangevuld"):
@@ -119,18 +124,17 @@ def _toon_recept_kaart(recept: dict, index: int, selecteerbaar: bool = True) -> 
                 for i, stap in enumerate(recept["stappen"], 1):
                     st.markdown(f"{i}. {stap}")
 
-        if selecteerbaar:
-            gekozen = naam in st.session_state.selectie
-            nieuw = st.checkbox(
-                f"Kies '{naam}' voor deze week", value=gekozen, key=f"sel_{index}_{naam}"
-            )
-            if nieuw and not gekozen:
-                if len(st.session_state.selectie) >= config.AANTAL_SELECTIE:
-                    st.warning(f"Je kunt maximaal {config.AANTAL_SELECTIE} recepten kiezen.")
-                else:
-                    st.session_state.selectie.add(naam)
-            elif not nieuw and gekozen:
-                st.session_state.selectie.discard(naam)
+        if met_pin:
+            in_week = recepten_mod.is_weekfavoriet(naam)
+            label = "✅ In weekfavorieten — tik om te verwijderen" if in_week \
+                else "📌 Zet in weekfavorieten"
+            if st.button(label, key=f"pin_{index}_{naam}",
+                         type="primary" if not in_week else "secondary"):
+                nieuw = recepten_mod.wissel_weekfavoriet(recept)
+                st.toast("📌 Toegevoegd aan weekfavorieten!" if nieuw
+                         else "Verwijderd uit weekfavorieten.",
+                         icon="📌" if nieuw else "🗑️")
+                st.rerun()
         st.markdown("</div>", unsafe_allow_html=True)
 
 
@@ -162,9 +166,10 @@ def pagina_weekmenu() -> None:
 
     st.title(f"🍽️ {config.APP_NAAM} – {volgende_week_titel()}")
     st.caption(
-        f"7 eenvoudige maaltijden (≤ 30 min, min. {config.GROENTE_MIN_PER_PERSOON} g "
-        f"groente p.p.) voor {volw} volwassene(n) + {kind} kind(eren). "
-        "⭐ Favorieten krijgen voorrang als inspiratie."
+        f"Voor {volw} volwassene(n) + {kind} kind(eren) · ≤ 30 min · "
+        f"min. {config.GROENTE_MIN_PER_PERSOON} g groente p.p. — "
+        "**Zo werkt het:** 1) Genereer inspiratie · 2) Tik 📌 bij wat je wilt "
+        "koken · 3) Ga naar 🛒 Boodschappen"
     )
 
     if st.button("🎲 Genereer 7 maaltijden voor volgende week", type="primary"):
@@ -181,9 +186,9 @@ def pagina_weekmenu() -> None:
             geschikt, instellingen, favoriete_namen=favoriete_namen
         )
         st.session_state.weekmenu = menu
-        st.session_state.selectie = set()
-        recepten_mod.bewaar_selectie(menu)
-        st.toast("✅ Nieuwe recepten gegenereerd! Selecteer 3 voor deze week.", icon="✅")
+        st.session_state.afgevinkt = set()
+        recepten_mod.bewaar_weekmenu(menu)
+        st.toast("✅ Nieuwe inspiratie! Tik 📌 bij de gerechten die je wilt koken.", icon="✅")
         for w in waarschuwingen:
             st.toast(w, icon="⚠️")
 
@@ -192,41 +197,153 @@ def pagina_weekmenu() -> None:
         st.info("Nog geen weekmenu. Klik op de knop hierboven om te genereren.")
         return
 
-    st.subheader(f"Weekmenu ({len(menu)} maaltijden)")
-    st.write(f"Geselecteerd: **{len(st.session_state.selectie)} / {config.AANTAL_SELECTIE}**")
+    aantal_week = len(recepten_mod.laad_weekfavorieten())
+    st.subheader(f"Inspiratie ({len(menu)} maaltijden)")
+    st.caption(f"📌 {aantal_week} gerecht(en) in je weekfavorieten — "
+               "die vormen samen je boodschappenlijst.")
 
     for i, recept in enumerate(menu):
-        _toon_recept_kaart(recept, i, selecteerbaar=True)
+        _toon_recept_kaart(recept, i, met_pin=True)
+
+
+# --------------------------------------------------------------------------
+# Pagina: Boodschappen
+# --------------------------------------------------------------------------
+CATEGORIE_EMOJI = {
+    "groente": "🥦", "fruit": "🍎", "vlees": "🥩", "vis": "🐟",
+    "pasta": "🍝", "zuivel": "🧀", "kruiden": "🌿", "saus": "🥫",
+    "overig": "🛒",
+}
+
+
+def _schoon_zoekterm(product: str) -> str:
+    """Maak een productnaam geschikt als AH-zoekterm.
+
+    Haalt haakjes-toevoegingen weg: "spinazie (diepvries)" -> "spinazie diepvries".
+    """
+    import re as _re
+    p = _re.sub(r"[()]", " ", str(product))
+    return _re.sub(r"\s+", " ", p).strip()
+
+
+def pagina_boodschappen() -> None:
+    from urllib.parse import quote_plus
+
+    st.title("🛒 Boodschappen")
+    gekozen = recepten_mod.laad_weekfavorieten()
+    if not gekozen:
+        st.info("Nog geen weekfavorieten. Ga naar **🍽️ Weekmenu** en tik 📌 "
+                "bij de gerechten die je deze week wilt koken.")
+        return
+
+    namen = " · ".join(r.get("naam", "?") for r in gekozen)
+    st.caption(f"Voor: {namen}")
+
+    lijst = boodschappenlijst.bouw_lijst(gekozen)
+    if lijst.empty:
+        st.warning("Geen ingrediënten gevonden in de gekozen recepten.")
+        return
+
+    totaal = len(lijst)
+    klaar = len(st.session_state.afgevinkt & set(lijst["product"]))
+    st.progress(klaar / totaal if totaal else 0.0,
+                text=f"{klaar} van {totaal} afgevinkt")
+
+    st.caption(
+        "Tik **AH ↗** om dat product direct in de AH-zoeker te openen "
+        "(daar tik je '+' om het in je mandje te doen). Vink af wat je hebt."
+    )
+
+    # Lijst per categorie, met afvinkvakje en AH-zoeklink per product.
+    for categorie in lijst["categorie"].unique():
+        emoji = CATEGORIE_EMOJI.get(categorie, "🛒")
+        st.markdown(f"**{emoji} {categorie.capitalize()}**")
+        deel = lijst[lijst["categorie"] == categorie]
+        for _, rij in deel.iterrows():
+            product = rij["product"]
+            hoeveelheid = f"{rij['hoeveelheid']} {rij['eenheid']}".strip()
+            bio = " 🌱" if rij["biologisch"] else ""
+            kol_c, kol_l = st.columns([5, 1])
+            with kol_c:
+                aangevinkt = st.checkbox(
+                    f"{product} — {hoeveelheid}{bio}",
+                    value=product in st.session_state.afgevinkt,
+                    key=f"af_{product}",
+                )
+                if aangevinkt:
+                    st.session_state.afgevinkt.add(product)
+                else:
+                    st.session_state.afgevinkt.discard(product)
+            with kol_l:
+                url = f"https://www.ah.nl/zoeken?query={quote_plus(_schoon_zoekterm(product))}"
+                st.markdown(f"[AH ↗]({url})")
 
     st.divider()
-    kol1, kol2 = st.columns(2)
-    with kol1:
-        if st.button("💾 Bevestig selectie"):
-            if len(st.session_state.selectie) != config.AANTAL_SELECTIE:
-                st.warning(f"Kies precies {config.AANTAL_SELECTIE} recepten.")
-            else:
-                gekozen = [r for r in menu if r.get("naam") in st.session_state.selectie]
-                recepten_mod.bewaar_selectie(gekozen)
-                st.toast("💾 Selectie opgeslagen!", icon="💾")
-                st.success("Je 3 recepten zijn opgeslagen in geselecteerde_recepten.json.")
 
-    with kol2:
-        gekozen = [r for r in menu if r.get("naam") in st.session_state.selectie]
-        if gekozen:
-            lijst = boodschappenlijst.bouw_lijst(gekozen)
-            csv = boodschappenlijst.naar_csv(lijst)
-            st.toast("🛒 Boodschappenlijst klaar voor export!", icon="🛒")
-            st.download_button(
-                "🛒 Exporteer boodschappenlijst als CSV",
-                data=csv,
-                file_name="boodschappenlijst.csv",
-                mime="text/csv",
-            )
-            with st.expander("Voorbeeld boodschappenlijst"):
-                st.dataframe(lijst, use_container_width=True)
-        else:
-            st.button("🛒 Exporteer boodschappenlijst als CSV", disabled=True,
-                      help="Kies eerst recepten en bevestig je selectie.")
+    # Kopieerbare tekstlijst (st.code heeft een ingebouwde kopieerknop).
+    st.markdown("**📋 Kopieer als tekst** (voor je notities of de AH-app)")
+    regels = [f"Boodschappen – {volgende_week_titel()}"]
+    for categorie in lijst["categorie"].unique():
+        regels.append("")
+        regels.append(f"{CATEGORIE_EMOJI.get(categorie, '')} {categorie.upper()}")
+        deel = lijst[lijst["categorie"] == categorie]
+        for _, rij in deel.iterrows():
+            h = f"{rij['hoeveelheid']} {rij['eenheid']}".strip()
+            regels.append(f"- {rij['product']} ({h})")
+    st.code("\n".join(regels), language=None)
+
+    # CSV-download blijft beschikbaar.
+    st.download_button(
+        "⬇️ Download als CSV",
+        data=boodschappenlijst.naar_csv(lijst),
+        file_name="boodschappenlijst.csv",
+        mime="text/csv",
+    )
+
+    st.caption(
+        "Eerlijk: AH biedt geen automatische lijst-import; producten in je "
+        "mandje zetten blijft handwerk via de AH-zoeklinks hierboven."
+    )
+
+
+# --------------------------------------------------------------------------
+# Pagina: Weekfavorieten
+# --------------------------------------------------------------------------
+def pagina_weekfavorieten() -> None:
+    st.title("📌 Weekfavorieten")
+    week = recepten_mod.laad_weekfavorieten()
+
+    if gedeelde_opslag.actief():
+        st.caption("☁️ Gedeelde opslag actief: het hele huishouden ziet en "
+                   "bewerkt dezelfde lijst (wijzigingen van anderen verschijnen "
+                   "binnen een minuut).")
+    else:
+        st.caption("⚠️ Gedeelde opslag staat uit: deze lijst kan verloren gaan "
+                   "als de app herstart. Zie de README voor het instellen van "
+                   "permanente, gedeelde opslag via GitHub.")
+
+    if not week:
+        st.info("Nog leeg. Ga naar **🍽️ Weekmenu** of **⭐ Favorieten** en tik "
+                "📌 bij de gerechten voor deze week.")
+        return
+
+    st.write(f"**{len(week)} gerecht(en)** voor deze week — samen goed voor "
+             "je 🛒 boodschappenlijst.")
+
+    for i, recept in enumerate(week):
+        _toon_recept_kaart(recept, f"week{i}", met_pin=False)
+        if st.button(f"🗑️ Haal '{recept.get('naam')}' van de lijst",
+                     key=f"del_week_{i}"):
+            recepten_mod.verwijder_weekfavoriet(recept.get("naam"))
+            st.toast("Verwijderd uit weekfavorieten.", icon="🗑️")
+            st.rerun()
+
+    st.divider()
+    if st.button("🗑️ Maak de hele lijst leeg (nieuwe week)"):
+        recepten_mod.leeg_weekfavorieten()
+        st.session_state.afgevinkt = set()
+        st.toast("Weekfavorieten geleegd — klaar voor een nieuwe week!", icon="✨")
+        st.rerun()
 
 
 # --------------------------------------------------------------------------
@@ -239,7 +356,7 @@ def pagina_favorieten() -> None:
         st.info("Je hebt nog geen favorieten. Klik op het sterretje bij een recept.")
         return
     for i, recept in enumerate(favorieten):
-        _toon_recept_kaart(recept, f"fav{i}", selecteerbaar=False)
+        _toon_recept_kaart(recept, f"fav{i}", met_pin=True)
         if st.button(f"🗑️ Verwijder '{recept.get('naam')}'", key=f"del_fav_{i}"):
             recepten_mod.verwijder_favoriet(recept.get("naam"))
             st.rerun()
@@ -456,11 +573,15 @@ def pagina_instellingen() -> None:
 # --------------------------------------------------------------------------
 PAGINAS = {
     "🍽️ Weekmenu": pagina_weekmenu,
+    "📌 Week": pagina_weekfavorieten,
+    "🛒 Boodschappen": pagina_boodschappen,
     "⭐ Favorieten": pagina_favorieten,
     "⚙️ Instellingen": pagina_instellingen,
 }
 
-keuze = st.sidebar.radio("Navigatie", list(PAGINAS.keys()))
-st.sidebar.divider()
-st.sidebar.caption("Maaltijdinspo · data wordt in de app-omgeving opgeslagen (JSON).")
+# Navigatie bovenaan (altijd zichtbaar, ook op telefoons — de zijbalk zit
+# daar verstopt achter een hamburger-icoon dat mensen vaak niet vinden).
+keuze = st.radio("Menu", list(PAGINAS.keys()), horizontal=True,
+                 label_visibility="collapsed")
+st.markdown("---")
 PAGINAS[keuze]()

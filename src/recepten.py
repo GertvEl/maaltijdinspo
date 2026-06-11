@@ -10,7 +10,7 @@ from __future__ import annotations
 from typing import Any
 
 import config
-from src import opslag, validatie
+from src import opslag, validatie, gedeelde_opslag
 
 
 def laad_recepten() -> list[dict[str, Any]]:
@@ -75,10 +75,10 @@ def filter_op_voorkeuren(
     return resultaat
 
 
-# --- Favorieten ---
+# --- Favorieten (⭐ langetermijn-inspiratie; gedeeld met het huishouden) ---
 
 def laad_favorieten() -> list[dict[str, Any]]:
-    data = opslag.laad_json(config.FAVORIETEN_BESTAND, standaard=[])
+    data = gedeelde_opslag.laad(config.FAVORIETEN_BESTAND, standaard=[])
     return data if isinstance(data, list) else []
 
 
@@ -92,16 +92,50 @@ def wissel_favoriet(recept: dict[str, Any]) -> bool:
     naam = recept.get("naam")
     if any(f.get("naam") == naam for f in favorieten):
         favorieten = [f for f in favorieten if f.get("naam") != naam]
-        opslag.schrijf_json(config.FAVORIETEN_BESTAND, favorieten)
+        gedeelde_opslag.schrijf(config.FAVORIETEN_BESTAND, favorieten)
         return False
     favorieten.append(recept)
-    opslag.schrijf_json(config.FAVORIETEN_BESTAND, favorieten)
+    gedeelde_opslag.schrijf(config.FAVORIETEN_BESTAND, favorieten)
     return True
 
 
 def verwijder_favoriet(naam: str) -> None:
     favorieten = [f for f in laad_favorieten() if f.get("naam") != naam]
-    opslag.schrijf_json(config.FAVORIETEN_BESTAND, favorieten)
+    gedeelde_opslag.schrijf(config.FAVORIETEN_BESTAND, favorieten)
+
+
+# --- Weekfavorieten (📌 de gerechten van deze week; gedeeld, basis voor
+#     de boodschappenlijst) ---
+
+def laad_weekfavorieten() -> list[dict[str, Any]]:
+    data = gedeelde_opslag.laad(config.WEEKFAVORIETEN_BESTAND, standaard=[])
+    return data if isinstance(data, list) else []
+
+
+def is_weekfavoriet(naam: str) -> bool:
+    return any(r.get("naam") == naam for r in laad_weekfavorieten())
+
+
+def wissel_weekfavoriet(recept: dict[str, Any]) -> bool:
+    """Zet een recept in/uit de weekfavorieten. Geeft de nieuwe status terug."""
+    week = laad_weekfavorieten()
+    naam = recept.get("naam")
+    if any(r.get("naam") == naam for r in week):
+        week = [r for r in week if r.get("naam") != naam]
+        gedeelde_opslag.schrijf(config.WEEKFAVORIETEN_BESTAND, week)
+        return False
+    week.append(recept)
+    gedeelde_opslag.schrijf(config.WEEKFAVORIETEN_BESTAND, week)
+    return True
+
+
+def verwijder_weekfavoriet(naam: str) -> None:
+    week = [r for r in laad_weekfavorieten() if r.get("naam") != naam]
+    gedeelde_opslag.schrijf(config.WEEKFAVORIETEN_BESTAND, week)
+
+
+def leeg_weekfavorieten() -> None:
+    gedeelde_opslag.schrijf(config.WEEKFAVORIETEN_BESTAND, [])
 
 
 # --- Weekselectie ---
@@ -112,6 +146,16 @@ def bewaar_selectie(recepten: list[dict[str, Any]]) -> None:
 
 def laad_selectie() -> list[dict[str, Any]]:
     data = opslag.laad_json(config.GESELECTEERD_BESTAND, standaard=[])
+    return data if isinstance(data, list) else []
+
+
+def bewaar_weekmenu(recepten: list[dict[str, Any]]) -> None:
+    """Bewaar het volledige gegenereerde weekmenu (7 maaltijden)."""
+    opslag.schrijf_json(config.WEEKMENU_BESTAND, recepten)
+
+
+def laad_weekmenu() -> list[dict[str, Any]]:
+    data = opslag.laad_json(config.WEEKMENU_BESTAND, standaard=[])
     return data if isinstance(data, list) else []
 
 

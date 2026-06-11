@@ -13,6 +13,8 @@ APP_NAAM = "Maaltijdinspo"
 RECEPTEN_BESTAND = "recepten.json"
 FAVORIETEN_BESTAND = "favorieten.json"
 GESELECTEERD_BESTAND = "geselecteerde_recepten.json"
+WEEKMENU_BESTAND = "weekmenu.json"
+WEEKFAVORIETEN_BESTAND = "weekfavorieten.json"
 INSTELLINGEN_BESTAND = "instellingen.json"
 RATE_LIMIT_BESTAND = "rate_limits.json"
 
