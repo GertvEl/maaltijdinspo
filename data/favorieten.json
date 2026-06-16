@@ -126,5 +126,69 @@
     "voldeed_origineel": true,
     "is_aangevuld": false,
     "is_favoriet_bron": false
+  },
+  {
+    "id": "kabeljauw_stoof",
+    "naam": "Kabeljauw in Tomatensaus met Spinazie",
+    "categorie": "kabeljauw",
+    "kooktijd_min": 20,
+    "porties": 2.5,
+    "vegetarisch": false,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {
+        "product": "kabeljauwfilet",
+        "hoeveelheid": 312,
+        "eenheid": "g",
+        "categorie": "vis",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "passata (tomatensaus)",
+        "hoeveelheid": 312,
+        "eenheid": "g",
+        "categorie": "saus",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "spinazie",
+        "hoeveelheid": 250,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "ui",
+        "hoeveelheid": 125,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "knoflook",
+        "hoeveelheid": 12,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": false,
+        "biologisch": false
+      }
+    ],
+    "stappen": [
+      "Fruit ui en knoflook.",
+      "Voeg passata toe, laat 5 min pruttelen.",
+      "Leg de kabeljauw erin, laat 8-10 min garen.",
+      "Roer spinazie er op het laatst door."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": "",
+    "groente_per_persoon": 155,
+    "voldeed_origineel": true,
+    "is_aangevuld": false,
+    "is_favoriet_bron": false
   }
 ]
