@@ -262,5 +262,77 @@
     "voldeed_origineel": true,
     "is_aangevuld": false,
     "is_favoriet_bron": false
+  },
+  {
+    "id": "pasta_arrabiata",
+    "naam": "Pasta Arrabiata met Groente",
+    "categorie": "pasta",
+    "kooktijd_min": 15,
+    "porties": 2.5,
+    "vegetarisch": true,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {
+        "product": "spaghetti",
+        "hoeveelheid": 200,
+        "eenheid": "g",
+        "categorie": "pasta",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "passata (tomatensaus)",
+        "hoeveelheid": 375,
+        "eenheid": "g",
+        "categorie": "saus",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "paprika",
+        "hoeveelheid": 250,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "courgette",
+        "hoeveelheid": 250,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "knoflook",
+        "hoeveelheid": 12,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "chilivlokken",
+        "hoeveelheid": 4,
+        "eenheid": "g",
+        "categorie": "kruiden",
+        "groente": false,
+        "biologisch": false
+      }
+    ],
+    "stappen": [
+      "Kook de spaghetti.",
+      "Bak knoflook, paprika en courgette aan.",
+      "Voeg passata en chilivlokken toe, laat 5 min pruttelen.",
+      "Meng met de pasta."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": "",
+    "groente_per_persoon": 205,
+    "voldeed_origineel": true,
+    "is_aangevuld": false,
+    "is_favoriet_bron": false
   }
 ]
