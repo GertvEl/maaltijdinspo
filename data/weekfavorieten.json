@@ -206,5 +206,69 @@
     "voldeed_origineel": true,
     "is_aangevuld": false,
     "is_favoriet_bron": false
+  },
+  {
+    "id": "veg_curry",
+    "naam": "Snelle Kikkererwten-Spinaziecurry",
+    "categorie": "vegetarisch",
+    "kooktijd_min": 15,
+    "porties": 2.5,
+    "vegetarisch": true,
+    "groente_hoofdingredient": true,
+    "ingredienten": [
+      {
+        "product": "kikkererwten",
+        "hoeveelheid": 312,
+        "eenheid": "g",
+        "categorie": "overig",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "spinazie (diepvries)",
+        "hoeveelheid": 375,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "kokosmelk",
+        "hoeveelheid": 250,
+        "eenheid": "ml",
+        "categorie": "overig",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "currypasta",
+        "hoeveelheid": 38,
+        "eenheid": "g",
+        "categorie": "saus",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "ui",
+        "hoeveelheid": 125,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      }
+    ],
+    "stappen": [
+      "Fruit de ui, voeg currypasta toe.",
+      "Voeg kikkererwten en kokosmelk toe, laat 5 min pruttelen.",
+      "Roer de spinazie erdoor tot geslonken.",
+      "Serveer met naan of rijst."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": "",
+    "groente_per_persoon": 200,
+    "voldeed_origineel": true,
+    "is_aangevuld": false,
+    "is_favoriet_bron": false
   }
 ]
