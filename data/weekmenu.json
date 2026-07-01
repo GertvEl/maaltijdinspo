@@ -1,1 +1,664 @@
-[]
+[
+  {
+    "id": "vegetarisch_lasagne_broccoli",
+    "naam": "Vegetarische lasagne met broccoli",
+    "categorie": "vegetarisch",
+    "kooktijd_min": 25,
+    "porties": 2.5,
+    "vegetarisch": true,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {
+        "product": "lasagnebladen",
+        "hoeveelheid": 7.5,
+        "eenheid": "stuk",
+        "categorie": "pasta",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "broccoli",
+        "hoeveelheid": 312,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "spinazie",
+        "hoeveelheid": 188,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "passata (tomatensaus)",
+        "hoeveelheid": 375,
+        "eenheid": "g",
+        "categorie": "saus",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "mozzarella",
+        "hoeveelheid": 125,
+        "eenheid": "g",
+        "categorie": "zuivel",
+        "groente": false,
+        "biologisch": false
+      }
+    ],
+    "stappen": [
+      "Kook de broccoli kort en laat de spinazie slinken.",
+      "Maak lagen met passata, lasagnebladen, broccoli en spinazie.",
+      "Sluit af met mozzarella en bak 20 minuten in de oven.",
+      "Laat even rusten en serveer."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": "",
+    "groente_per_persoon": 200,
+    "voldeed_origineel": true,
+    "is_aangevuld": false,
+    "is_favoriet_bron": false
+  },
+  {
+    "id": "rund_gehaktballen_boerenkool",
+    "naam": "Gehaktballen met boerenkool en aardappelen",
+    "categorie": "rund",
+    "kooktijd_min": 25,
+    "porties": 2.5,
+    "vegetarisch": false,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {
+        "product": "rundergehakt",
+        "hoeveelheid": 312,
+        "eenheid": "g",
+        "categorie": "vlees",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "boerenkool",
+        "hoeveelheid": 312,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "aardappelen",
+        "hoeveelheid": 375,
+        "eenheid": "g",
+        "categorie": "overig",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "ui",
+        "hoeveelheid": 125,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "mosterd",
+        "hoeveelheid": 25,
+        "eenheid": "g",
+        "categorie": "saus",
+        "groente": false,
+        "biologisch": false
+      }
+    ],
+    "stappen": [
+      "Maak kleine gehaktballen en bak ze goudbruin.",
+      "Kook de aardappelen gaar.",
+      "Stoof de boerenkool met ui kort in.",
+      "Serveer de gehaktballen met de boerenkool en aardappelen."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": "",
+    "groente_per_persoon": 175,
+    "voldeed_origineel": true,
+    "is_aangevuld": false,
+    "is_favoriet_bron": false
+  },
+  {
+    "id": "zalm_pasta",
+    "naam": "Romige Pasta met Zalm en Broccoli",
+    "categorie": "zalm",
+    "kooktijd_min": 20,
+    "porties": 2.5,
+    "vegetarisch": false,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {
+        "product": "tagliatelle",
+        "hoeveelheid": 200,
+        "eenheid": "g",
+        "categorie": "pasta",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "zalmfilet",
+        "hoeveelheid": 250,
+        "eenheid": "g",
+        "categorie": "vis",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "broccoli",
+        "hoeveelheid": 375,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "kookroom",
+        "hoeveelheid": 188,
+        "eenheid": "ml",
+        "categorie": "zuivel",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "citroen",
+        "hoeveelheid": 1,
+        "eenheid": "stuk",
+        "categorie": "fruit",
+        "groente": false,
+        "biologisch": false
+      }
+    ],
+    "stappen": [
+      "Kook de tagliatelle met broccoli.",
+      "Bak de zalm en plaag uit elkaar.",
+      "Voeg room en citroensap toe.",
+      "Meng alles."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": "",
+    "groente_per_persoon": 150,
+    "voldeed_origineel": true,
+    "is_aangevuld": false,
+    "is_favoriet_bron": false
+  },
+  {
+    "id": "kip_teriyaki",
+    "naam": "Kip Teriyaki met Sperziebonen",
+    "categorie": "kip",
+    "kooktijd_min": 20,
+    "porties": 2.5,
+    "vegetarisch": false,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {
+        "product": "kipdijfilet",
+        "hoeveelheid": 312,
+        "eenheid": "g",
+        "categorie": "vlees",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "sperziebonen (diepvries)",
+        "hoeveelheid": 312,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "wortel",
+        "hoeveelheid": 188,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "teriyakisaus",
+        "hoeveelheid": 62,
+        "eenheid": "ml",
+        "categorie": "saus",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "rijst",
+        "hoeveelheid": 188,
+        "eenheid": "g",
+        "categorie": "overig",
+        "groente": false,
+        "biologisch": false
+      }
+    ],
+    "stappen": [
+      "Kook de rijst.",
+      "Bak de kip, voeg wortel en sperziebonen toe.",
+      "Voeg teriyakisaus toe en laat 3-4 min karamelliseren.",
+      "Serveer met rijst."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": "",
+    "groente_per_persoon": 200,
+    "voldeed_origineel": true,
+    "is_aangevuld": false,
+    "is_favoriet_bron": false
+  },
+  {
+    "id": "kabeljauw_oven",
+    "naam": "Kabeljauw uit de Oven met Mediterrane Groente",
+    "categorie": "kabeljauw",
+    "kooktijd_min": 25,
+    "porties": 2.5,
+    "vegetarisch": false,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {
+        "product": "kabeljauwfilet",
+        "hoeveelheid": 312,
+        "eenheid": "g",
+        "categorie": "vis",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "courgette",
+        "hoeveelheid": 250,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "rode ui",
+        "hoeveelheid": 125,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "cherrytomaten",
+        "hoeveelheid": 188,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "olijfolie",
+        "hoeveelheid": 25,
+        "eenheid": "ml",
+        "categorie": "overig",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "Italiaanse kruiden",
+        "hoeveelheid": 6,
+        "eenheid": "g",
+        "categorie": "kruiden",
+        "groente": false,
+        "biologisch": false
+      }
+    ],
+    "stappen": [
+      "Snijd groente, meng met olie en kruiden in een ovenschaal.",
+      "Oven 200°C, 12 minuten voorbakken.",
+      "Leg de kabeljauw erop, nog 10-12 minuten in de oven."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": "",
+    "groente_per_persoon": 225,
+    "voldeed_origineel": true,
+    "is_aangevuld": false,
+    "is_favoriet_bron": false
+  },
+  {
+    "id": "pasta_groente_ovenschotel",
+    "naam": "Pasta-ovenschotel met Veel Groente",
+    "categorie": "pasta",
+    "kooktijd_min": 30,
+    "porties": 2.5,
+    "vegetarisch": true,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {
+        "product": "penne",
+        "hoeveelheid": 200,
+        "eenheid": "g",
+        "categorie": "pasta",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "courgette",
+        "hoeveelheid": 250,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "champignons",
+        "hoeveelheid": 188,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "spinazie",
+        "hoeveelheid": 125,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "passata (tomatensaus)",
+        "hoeveelheid": 375,
+        "eenheid": "g",
+        "categorie": "saus",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "mozzarella",
+        "hoeveelheid": 125,
+        "eenheid": "g",
+        "categorie": "zuivel",
+        "groente": false,
+        "biologisch": false
+      }
+    ],
+    "stappen": [
+      "Kook de penne beetgaar.",
+      "Bak courgette en champignons aan, voeg spinazie en passata toe.",
+      "Meng met pasta, doe in een schaal, beleg met mozzarella.",
+      "Oven 200°C, ca. 15 minuten."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": "",
+    "groente_per_persoon": 225,
+    "voldeed_origineel": true,
+    "is_aangevuld": false,
+    "is_favoriet_bron": false
+  },
+  {
+    "id": "veg_curry",
+    "naam": "Snelle Kikkererwten-Spinaziecurry",
+    "categorie": "vegetarisch",
+    "kooktijd_min": 15,
+    "porties": 2.5,
+    "vegetarisch": true,
+    "groente_hoofdingredient": true,
+    "ingredienten": [
+      {
+        "product": "kikkererwten",
+        "hoeveelheid": 312,
+        "eenheid": "g",
+        "categorie": "overig",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "spinazie (diepvries)",
+        "hoeveelheid": 375,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "kokosmelk",
+        "hoeveelheid": 250,
+        "eenheid": "ml",
+        "categorie": "overig",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "currypasta",
+        "hoeveelheid": 38,
+        "eenheid": "g",
+        "categorie": "saus",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "ui",
+        "hoeveelheid": 125,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      }
+    ],
+    "stappen": [
+      "Fruit de ui, voeg currypasta toe.",
+      "Voeg kikkererwten en kokosmelk toe, laat 5 min pruttelen.",
+      "Roer de spinazie erdoor tot geslonken.",
+      "Serveer met naan of rijst."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": "",
+    "groente_per_persoon": 200,
+    "voldeed_origineel": true,
+    "is_aangevuld": false,
+    "is_favoriet_bron": false
+  },
+  {
+    "id": "kip_sperziebonen_mastruimpjes",
+    "naam": "Kip met sperziebonen en mastruimpjes",
+    "categorie": "kip",
+    "kooktijd_min": 20,
+    "porties": 2.5,
+    "vegetarisch": false,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {
+        "product": "kipfilet",
+        "hoeveelheid": 312,
+        "eenheid": "g",
+        "categorie": "vlees",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "sperziebonen",
+        "hoeveelheid": 250,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "mastruimpjes",
+        "hoeveelheid": 188,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "ui",
+        "hoeveelheid": 125,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "olijfolie",
+        "hoeveelheid": 19,
+        "eenheid": "ml",
+        "categorie": "overig",
+        "groente": false,
+        "biologisch": false
+      }
+    ],
+    "stappen": [
+      "Bak de kipfilet goudbruin.",
+      "Roerbak sperziebonen, mastruimpjes en ui kort mee.",
+      "Meng alles door elkaar en serveer warm."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": "",
+    "groente_per_persoon": 225,
+    "voldeed_origineel": true,
+    "is_aangevuld": false,
+    "is_favoriet_bron": false
+  },
+  {
+    "id": "rund_wrap",
+    "naam": "Mexicaanse Wraps met Rundvlees",
+    "categorie": "rund",
+    "kooktijd_min": 20,
+    "porties": 2.5,
+    "vegetarisch": false,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {
+        "product": "tortillawraps",
+        "hoeveelheid": 5,
+        "eenheid": "stuk",
+        "categorie": "overig",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "rundergehakt",
+        "hoeveelheid": 312,
+        "eenheid": "g",
+        "categorie": "vlees",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "paprika",
+        "hoeveelheid": 250,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "mais",
+        "hoeveelheid": 125,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "ijsbergsla",
+        "hoeveelheid": 125,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "taco-kruidenmix",
+        "hoeveelheid": 25,
+        "eenheid": "g",
+        "categorie": "kruiden",
+        "groente": false,
+        "biologisch": false
+      }
+    ],
+    "stappen": [
+      "Bak het gehakt met de kruidenmix.",
+      "Bak de paprika kort mee, voeg mais toe.",
+      "Verwarm de wraps.",
+      "Vul met vlees, groente en sla."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": "",
+    "groente_per_persoon": 200,
+    "voldeed_origineel": true,
+    "is_aangevuld": false,
+    "is_favoriet_bron": false
+  },
+  {
+    "id": "pasta_tomaat_spinazie",
+    "naam": "Pasta met tomaat, spinazie en mozzarella",
+    "categorie": "pasta",
+    "kooktijd_min": 15,
+    "porties": 2.5,
+    "vegetarisch": true,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {
+        "product": "penne",
+        "hoeveelheid": 200,
+        "eenheid": "g",
+        "categorie": "pasta",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "tomaat",
+        "hoeveelheid": 312,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "spinazie",
+        "hoeveelheid": 188,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "ui",
+        "hoeveelheid": 125,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "mozzarella",
+        "hoeveelheid": 125,
+        "eenheid": "g",
+        "categorie": "zuivel",
+        "groente": false,
+        "biologisch": false
+      }
+    ],
+    "stappen": [
+      "Kook de penne beetgaar.",
+      "Bak ui, tomaat en spinazie kort in de pan.",
+      "Meng de pasta erdoor en schep de mozzarella erover.",
+      "Laat kort smelten en serveer direct."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": "",
+    "groente_per_persoon": 250,
+    "voldeed_origineel": true,
+    "is_aangevuld": false,
+    "is_favoriet_bron": false
+  }
+]

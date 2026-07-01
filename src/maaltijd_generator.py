@@ -1,7 +1,7 @@
 """
 maaltijd_generator.py
 ----------------------
-Genereert een weekmenu van 7 maaltijden met variatie en minimaal 1
+Genereert een weekmenu van 10 maaltijden met variatie en minimaal 1
 vegetarisch recept. Elk geselecteerd recept wordt door de groentevalidatie
 gehaald en indien nodig aangevuld.
 """
@@ -28,6 +28,15 @@ def _markeer_groente(recept: dict[str, Any]) -> dict[str, Any]:
     aangevuld["voldeed_origineel"] = voldeed_origineel
     aangevuld["is_aangevuld"] = bool(aangevuld.get("aangevuld_met"))
     return aangevuld
+
+
+def _is_aardappelgerecht(recept: dict[str, Any]) -> bool:
+    """True als het recept een aardappel- of aardappelachtige bijgerecht bevat."""
+    for ing in recept.get("ingredienten", []):
+        product = str(ing.get("product", "")).lower()
+        if any(token in product for token in ["aardappel", "krieltjes", "friet", "patat"]):
+            return True
+    return False
 
 
 def schaal_recept(recept: dict[str, Any], doel_porties: float) -> dict[str, Any]:
@@ -94,12 +103,25 @@ def genereer_weekmenu(
     def is_fav(recept: dict[str, Any]) -> bool:
         return recept.get("naam", "") in favoriete_namen
 
+    def is_toegestaan(recept: dict[str, Any]) -> bool:
+        categorie = str(recept.get("categorie", "")).lower()
+        if _is_aardappelgerecht(recept):
+            if sum(1 for g in gekozen if _is_aardappelgerecht(g)) >= 1:
+                return False
+        if categorie == "zalm" and sum(1 for g in gekozen if str(g.get("categorie", "")).lower() == "zalm") >= 1:
+            return False
+        if categorie == "kabeljauw" and sum(1 for g in gekozen if str(g.get("categorie", "")).lower() == "kabeljauw") >= 1:
+            return False
+        return True
+
     # 1) Verplicht minimaal aantal vegetarische recepten (favorieten eerst).
     min_veg = int(instellingen.get("vegetarisch_per_week", config.MIN_VEGETARISCH))
     vegetarisch.sort(key=lambda r: 0 if is_fav(r) else 1)
     for r in vegetarisch:
         if len([g for g in gekozen if g.get("vegetarisch")]) >= min_veg:
             break
+        if not is_toegestaan(r):
+            continue
         gekozen.append(r)
         gebruikte_categorieen.append(r.get("categorie", ""))
     if len([g for g in gekozen if g.get("vegetarisch")]) < min_veg:
@@ -108,14 +130,17 @@ def genereer_weekmenu(
         )
 
     # 2) Vul aan met variatie; favorieten winnen bij gelijke variatie-score.
-    overige = [r for r in (vegetarisch + niet_veg) if r not in gekozen]
     fav_voorrang = bool(instellingen.get("favorieten_voorrang", True))
 
     def variatie_score(recept: dict[str, Any]) -> int:
         """Lager = beter; straft categorieën die al vaak gekozen zijn."""
         return gebruikte_categorieen.count(recept.get("categorie", ""))
 
-    while len(gekozen) < config.AANTAL_MAALTIJDEN and overige:
+    while len(gekozen) < config.AANTAL_MAALTIJDEN:
+        overige = [r for r in (vegetarisch + niet_veg)
+                   if r not in gekozen and is_toegestaan(r)]
+        if not overige:
+            break
         overige.sort(key=lambda r: (variatie_score(r),
                                     0 if (fav_voorrang and is_fav(r)) else 1))
         beste = (variatie_score(overige[0]),
@@ -126,7 +151,6 @@ def genereer_weekmenu(
         keuze = rng.choice(kandidaten)
         gekozen.append(keuze)
         gebruikte_categorieen.append(keuze.get("categorie", ""))
-        overige.remove(keuze)
 
     if len(gekozen) < config.AANTAL_MAALTIJDEN:
         waarschuwingen.append(

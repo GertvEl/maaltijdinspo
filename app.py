@@ -6,7 +6,7 @@ Maaltijdinspo — Streamlit-webapp (donker thema).
 Start lokaal met:  streamlit run app.py
 
 Pagina's:
-  * Weekmenu      – genereer 7 maaltijden, kies er 3, exporteer boodschappenlijst
+  * Weekmenu      – genereer 10 maaltijden, kies er 3, exporteer boodschappenlijst
   * Favorieten    – opgeslagen favoriete recepten (inspiratiebron voor het menu)
   * Instellingen  – gezinsprofiel, voorkeuren, recepten beheren, scrapen
 """
@@ -50,6 +50,17 @@ st.markdown(
       .bron { color: #60a5fa; font-size: 0.85rem; }
       /* Mobielvriendelijk: kaarten op smalle schermen volle breedte */
       @media (max-width: 640px) { .recept-kaart { padding: 12px; } }
+      /* Groene genereer-knop */
+      .genereer-wrapper button[kind="primary"] {
+        font-size: 1.25rem !important;
+        padding: 0.75rem 2rem !important;
+        background-color: #16a34a !important;
+        border-color: #16a34a !important;
+      }
+      .genereer-wrapper button[kind="primary"]:hover {
+        background-color: #15803d !important;
+        border-color: #15803d !important;
+      }
     </style>
     """,
     unsafe_allow_html=True,
@@ -172,7 +183,11 @@ def pagina_weekmenu() -> None:
         "koken · 3) Ga naar 🛒 Boodschappen"
     )
 
-    if st.button("🎲 Genereer 7 maaltijden voor volgende week", type="primary"):
+    st.markdown(
+        '<div class="genereer-wrapper">',
+        unsafe_allow_html=True,
+    )
+    if st.button("🎲 Genereer 10 maaltijden voor volgende week", type="primary"):
         alle = recepten_mod.laad_recepten()
         # Neem ook gescrapete recepten mee in de pool (dedup op naam).
         bekende_namen = {r.get("naam", "").lower() for r in alle}
@@ -191,6 +206,7 @@ def pagina_weekmenu() -> None:
         st.toast("✅ Nieuwe inspiratie! Tik 📌 bij de gerechten die je wilt koken.", icon="✅")
         for w in waarschuwingen:
             st.toast(w, icon="⚠️")
+    st.markdown('</div>', unsafe_allow_html=True)
 
     menu = st.session_state.weekmenu
     if not menu:

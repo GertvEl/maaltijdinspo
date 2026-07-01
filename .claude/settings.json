@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(./**)",
+      "Edit(./**)",
+      "Write(./**)",
+      "Bash(python ./**)",
+      "Bash(py -3 ./**)",
+      "Bash(python3 ./**)",
+      "Bash(cd ./ && python ./**)",
+      "Bash(cd ./ && py -3 ./**)",
+      "Bash(cd ./ && python3 ./**)",
+      "Bash(./**.py)"
+    ],
+    "deny": [
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(git add . && git commit *)",
+      "Bash(git add . && git push *)",
+      "Bash(rm *)",
+      "Bash(del *)",
+      "Bash(rmdir *)",
+      "Bash(.*token.*)",
+      "Bash(.*secret.*)",
+      "Bash(.*SECRET.*)",
+      "Bash(.*TOKEN.*)"
+    ]
+  }
+}

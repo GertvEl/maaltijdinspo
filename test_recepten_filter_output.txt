@@ -1,0 +1,11 @@
+1) aantal recepten: 41
+2) geldige JSON: ja
+3) per categorie:
+   - kip: 7
+   - rund: 9
+   - zalm: 8
+   - kabeljauw: 6
+   - pasta: 4
+   - vegetarisch: 7
+4) filter_op_voorkeuren: 41 van 41 komen door
+   -> alle recepten komen door

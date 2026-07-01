@@ -46,7 +46,7 @@ KOOKTIJD_VOORKEUR = 15     # voorkeur (minuten)
 MAX_INGREDIENTEN = 10      # "eenvoudig" = minder dan 10 ingrediënten
 
 # --- Weekplanning ---
-AANTAL_MAALTIJDEN = 7
+AANTAL_MAALTIJDEN = 10
 MIN_VEGETARISCH = 1
 AANTAL_SELECTIE = 3        # gebruiker kiest 3 van de 7
 
