@@ -13,10 +13,6 @@
       "Bash(./**.py)"
     ],
     "deny": [
-      "Bash(git commit *)",
-      "Bash(git push *)",
-      "Bash(git add . && git commit *)",
-      "Bash(git add . && git push *)",
       "Bash(rm *)",
       "Bash(del *)",
       "Bash(rmdir *)",
