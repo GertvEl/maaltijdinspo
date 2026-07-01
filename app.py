@@ -404,7 +404,7 @@ def pagina_instellingen() -> None:
                           int(instellingen.get("vegetarisch_per_week", 1)))
     fav_voorrang = st.checkbox(
         "⭐ Favorieten voorrang geven bij het genereren",
-        value=instellingen.get("favorieten_voorrang", True),
+        value=instellingen.get("favorieten_voorrang", False),
     )
     cats = st.multiselect("Voorkeurscategorieën", config.TOEGESTANE_CATEGORIEEN,
                           default=instellingen.get("voorkeur_categorieen", config.TOEGESTANE_CATEGORIEEN))

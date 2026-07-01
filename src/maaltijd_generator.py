@@ -77,9 +77,9 @@ def genereer_weekmenu(
 ) -> tuple[list[dict[str, Any]], list[str]]:
     """Genereer een weekmenu.
 
-    Favorieten (favoriete_namen) krijgen voorrang bij gelijke variatie-score,
-    zodat het menu inspiratie put uit wat het gezin lekker vindt — zonder
-    elke week exact hetzelfde te worden.
+    Favorieten (favoriete_namen) worden alleen meegewogen als
+    ``instellingen["favorieten_voorrang"]`` True is; standaard worden
+    recepten willekeurig geselecteerd.
 
     Retourneert (maaltijden, waarschuwingen).
     """
@@ -114,9 +114,8 @@ def genereer_weekmenu(
             return False
         return True
 
-    # 1) Verplicht minimaal aantal vegetarische recepten (favorieten eerst).
+    # 1) Verplicht minimaal aantal vegetarische recepten.
     min_veg = int(instellingen.get("vegetarisch_per_week", config.MIN_VEGETARISCH))
-    vegetarisch.sort(key=lambda r: 0 if is_fav(r) else 1)
     for r in vegetarisch:
         if len([g for g in gekozen if g.get("vegetarisch")]) >= min_veg:
             break

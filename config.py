@@ -89,7 +89,7 @@ STANDAARD_INSTELLINGEN = {
     "voorkeur_biologisch": True,
     "voorkeur_categorieen": list(TOEGESTANE_CATEGORIEEN),
     "receptsites": list(STANDAARD_RECEPTSITES),
-    "favorieten_voorrang": True,   # favorieten krijgen voorrang bij genereren
+    "favorieten_voorrang": False,  # favorieten krijgen geen automatische voorrang
     "scraping_aan": False,  # standaard UIT: app draait offline tenzij gebruiker aanzet
 }
 
