@@ -1,0 +1,4 @@
+batch*.json
+*.bak
+voeg_recepten_toe.py
+test_*.py
