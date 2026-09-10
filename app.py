@@ -50,14 +50,13 @@ st.markdown(
       .bron { color: #60a5fa; font-size: 0.85rem; }
       /* Mobielvriendelijk: kaarten op smalle schermen volle breedte */
       @media (max-width: 640px) { .recept-kaart { padding: 12px; } }
-      /* Groene genereer-knop */
-      .genereer-wrapper button[kind="primary"] {
-        font-size: 1.25rem !important;
-        padding: 0.75rem 2rem !important;
+      /* Groene primaire knoppen (fallback bovenop config.toml primaryColor) */
+      button[data-testid="baseButton-primary"] {
         background-color: #16a34a !important;
         border-color: #16a34a !important;
+        color: #ffffff !important;
       }
-      .genereer-wrapper button[kind="primary"]:hover {
+      button[data-testid="baseButton-primary"]:hover {
         background-color: #15803d !important;
         border-color: #15803d !important;
       }
@@ -87,8 +86,7 @@ def _toon_recept_kaart(recept: dict, index: int, met_pin: bool = True) -> None:
     bron = recept.get("bron", "Lokaal")
     bron_url = str(recept.get("bron_url", "")).strip()
 
-    with st.container():
-        st.markdown('<div class="recept-kaart">', unsafe_allow_html=True)
+    with st.container(border=True):
         kol1, kol2 = st.columns([5, 1])
         with kol1:
             fav_badge = " ⭐" if recept.get("is_favoriet_bron") else ""
@@ -99,20 +97,20 @@ def _toon_recept_kaart(recept: dict, index: int, met_pin: bool = True) -> None:
                     st.image(afbeelding, width=320)
                 except Exception:
                     pass  # kapotte afbeeldings-URL mag de kaart niet breken
-            # Bronlink: naar de receptsite, of anders een nette zoeklink.
+            bio_chip = ' &nbsp;·&nbsp; 🌱 bio' if bio else ''
+            st.markdown(
+                f'⏱️ {kooktijd} min &nbsp;·&nbsp; '
+                f'<span class="groente-badge">🥦 {groente} gr groente p.p.</span>'
+                f'{bio_chip}',
+                unsafe_allow_html=True,
+            )
             if bron_url.startswith("http"):
                 bron_html = f'<a class="bron" href="{bron_url}" target="_blank">📖 {bron} ↗</a>'
             else:
                 zoek = quote_plus(f"{naam} recept")
                 bron_html = (f'<a class="bron" href="https://www.google.com/search?q={zoek}" '
-                             f'target="_blank">🔍 zoek dit recept online ↗</a>')
-            bio_chip = ' &nbsp;·&nbsp; 🌱 bio' if bio else ''
-            st.markdown(
-                f'⏱️ {kooktijd} min &nbsp;·&nbsp; '
-                f'<span class="groente-badge">🥦 {groente} g groente/pers.</span>'
-                f'{bio_chip} &nbsp;·&nbsp; {bron_html}',
-                unsafe_allow_html=True,
-            )
+                             f'target="_blank">🔍 zoek online ↗</a>')
+            st.markdown(bron_html, unsafe_allow_html=True)
             if recept.get("is_aangevuld"):
                 st.caption("⚠️ Automatisch aangevuld met extra groente om de norm te halen.")
         with kol2:
@@ -146,7 +144,6 @@ def _toon_recept_kaart(recept: dict, index: int, met_pin: bool = True) -> None:
                          else "Verwijderd uit weekfavorieten.",
                          icon="📌" if nieuw else "🗑️")
                 st.rerun()
-        st.markdown("</div>", unsafe_allow_html=True)
 
 
 MAANDEN_NL = ["", "januari", "februari", "maart", "april", "mei", "juni",
@@ -175,18 +172,15 @@ def pagina_weekmenu() -> None:
     volw = int(instellingen.get("volwassenen", config.STANDAARD_VOLWASSENEN))
     kind = int(instellingen.get("kinderen", config.STANDAARD_KINDEREN))
 
-    st.title(f"🍽️ {config.APP_NAAM} – {volgende_week_titel()}")
+    st.header(f"🍽️ {config.APP_NAAM}")
+    st.caption(volgende_week_titel())
     st.caption(
         f"Voor {volw} volwassene(n) + {kind} kind(eren) · ≤ 30 min · "
         f"min. {config.GROENTE_MIN_PER_PERSOON} g groente p.p. — "
         "**Zo werkt het:** 1) Genereer inspiratie · 2) Tik 📌 bij wat je wilt "
-        "koken · 3) Ga naar 🛒 Boodschappen"
+        "koken · 3) Ga naar 🛒 Lijst"
     )
 
-    st.markdown(
-        '<div class="genereer-wrapper">',
-        unsafe_allow_html=True,
-    )
     if st.button("🎲 Genereer 10 maaltijden voor volgende week", type="primary"):
         alle = recepten_mod.laad_recepten()
         # Neem ook gescrapete recepten mee in de pool (dedup op naam).
@@ -206,8 +200,46 @@ def pagina_weekmenu() -> None:
         st.toast("✅ Nieuwe inspiratie! Tik 📌 bij de gerechten die je wilt koken.", icon="✅")
         for w in waarschuwingen:
             st.toast(w, icon="⚠️")
-    st.markdown('</div>', unsafe_allow_html=True)
 
+    # ── Zoeken & filteren ──────────────────────────────────────────────────
+    with st.expander("🔍 Zoek een recept"):
+        zoek_naam = st.text_input("Naam", placeholder="bijv. pasta, zalm, curry…",
+                                  key="zoek_naam")
+        z_kol1, z_kol2 = st.columns(2)
+        with z_kol1:
+            zoek_cat = st.multiselect("Categorie", config.TOEGESTANE_CATEGORIEEN,
+                                      key="zoek_cat")
+            zoek_veg = st.checkbox("Alleen vegetarisch", key="zoek_veg")
+        with z_kol2:
+            zoek_tijd = st.slider("Max. kooktijd (min)", 10, config.KOOKTIJD_MAX,
+                                  config.KOOKTIJD_MAX, key="zoek_tijd")
+
+        if st.button("🔍 Zoeken", type="primary", key="zoek_knop"):
+            alle_recepten = recepten_mod.laad_recepten()
+            resultaten = alle_recepten
+            if zoek_naam:
+                term = zoek_naam.lower()
+                resultaten = [r for r in resultaten
+                              if term in r.get("naam", "").lower()]
+            if zoek_cat:
+                resultaten = [r for r in resultaten
+                              if r.get("categorie") in zoek_cat]
+            if zoek_veg:
+                resultaten = [r for r in resultaten if r.get("vegetarisch")]
+            resultaten = [r for r in resultaten
+                          if r.get("kooktijd_min", 999) <= zoek_tijd]
+            st.session_state.zoekresultaten = resultaten
+
+        if "zoekresultaten" in st.session_state:
+            resultaten = st.session_state.zoekresultaten
+            if resultaten:
+                st.caption(f"{len(resultaten)} recept(en) gevonden")
+                for i, recept in enumerate(resultaten):
+                    _toon_recept_kaart(recept, f"zoek{i}", met_pin=True)
+            else:
+                st.info("Geen recepten gevonden met deze filters.")
+
+    # ── Gegenereerde inspiratie ─────────────────────────────────────────────
     menu = st.session_state.weekmenu
     if not menu:
         st.info("Nog geen weekmenu. Klik op de knop hierboven om te genereren.")
@@ -245,10 +277,10 @@ def _schoon_zoekterm(product: str) -> str:
 def pagina_boodschappen() -> None:
     from urllib.parse import quote_plus
 
-    st.title("🛒 Boodschappen")
+    st.header("🛒 Boodschappen")
     gekozen = recepten_mod.laad_weekfavorieten()
     if not gekozen:
-        st.info("Nog geen weekfavorieten. Ga naar **🍽️ Weekmenu** en tik 📌 "
+        st.info("Nog geen weekfavorieten. Ga naar **🍽️ Menu** en tik 📌 "
                 "bij de gerechten die je deze week wilt koken.")
         return
 
@@ -326,7 +358,7 @@ def pagina_boodschappen() -> None:
 # Pagina: Weekfavorieten
 # --------------------------------------------------------------------------
 def pagina_weekfavorieten() -> None:
-    st.title("📌 Weekfavorieten")
+    st.header("📌 Weekfavorieten")
     week = recepten_mod.laad_weekfavorieten()
 
     if gedeelde_opslag.actief():
@@ -339,7 +371,7 @@ def pagina_weekfavorieten() -> None:
                    "permanente, gedeelde opslag via GitHub.")
 
     if not week:
-        st.info("Nog leeg. Ga naar **🍽️ Weekmenu** of **⭐ Favorieten** en tik "
+        st.info("Nog leeg. Ga naar **🍽️ Menu** of **⭐ Fav** en tik "
                 "📌 bij de gerechten voor deze week.")
         return
 
@@ -366,7 +398,7 @@ def pagina_weekfavorieten() -> None:
 # Pagina: Favorieten
 # --------------------------------------------------------------------------
 def pagina_favorieten() -> None:
-    st.title("⭐ Favorieten")
+    st.header("⭐ Favorieten")
     favorieten = recepten_mod.laad_favorieten()
     if not favorieten:
         st.info("Je hebt nog geen favorieten. Klik op het sterretje bij een recept.")
@@ -382,7 +414,7 @@ def pagina_favorieten() -> None:
 # Pagina: Instellingen
 # --------------------------------------------------------------------------
 def pagina_instellingen() -> None:
-    st.title("⚙️ Instellingen")
+    st.header("⚙️ Instellingen")
     instellingen = recepten_mod.laad_instellingen()
 
     st.subheader("Gezinsprofiel")
@@ -588,11 +620,11 @@ def pagina_instellingen() -> None:
 # Navigatie
 # --------------------------------------------------------------------------
 PAGINAS = {
-    "🍽️ Weekmenu": pagina_weekmenu,
+    "🍽️ Menu": pagina_weekmenu,
     "📌 Week": pagina_weekfavorieten,
-    "🛒 Boodschappen": pagina_boodschappen,
-    "⭐ Favorieten": pagina_favorieten,
-    "⚙️ Instellingen": pagina_instellingen,
+    "🛒 Lijst": pagina_boodschappen,
+    "⭐ Fav": pagina_favorieten,
+    "⚙️ Meer": pagina_instellingen,
 }
 
 # Navigatie bovenaan (altijd zichtbaar, ook op telefoons — de zijbalk zit
