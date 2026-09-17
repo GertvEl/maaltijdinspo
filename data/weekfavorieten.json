@@ -122,5 +122,65 @@
     "bron": "Lokaal",
     "bron_url": "",
     "afbeelding_url": ""
+  },
+  {
+    "id": "vegetarisch_bieten_quiche",
+    "naam": "Vegetarische bieten-quiche met sla",
+    "categorie": "vegetarisch",
+    "kooktijd_min": 20,
+    "porties": 2,
+    "vegetarisch": true,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {
+        "product": "quichedeeg",
+        "hoeveelheid": 1,
+        "eenheid": "stuk",
+        "categorie": "overig",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "rode biet",
+        "hoeveelheid": 200,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "sla",
+        "hoeveelheid": 100,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "ei",
+        "hoeveelheid": 2,
+        "eenheid": "stuk",
+        "categorie": "overig",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "mozzarella",
+        "hoeveelheid": 100,
+        "eenheid": "g",
+        "categorie": "zuivel",
+        "groente": false,
+        "biologisch": false
+      }
+    ],
+    "stappen": [
+      "Leg het deeg in een vorm.",
+      "Verdeel biet en sla erover.",
+      "Klop eieren en giet ze eroverheen.",
+      "Bak de quiche in de oven tot gaar."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": ""
   }
 ]
