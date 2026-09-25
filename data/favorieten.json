@@ -334,5 +334,86 @@
     "voldeed_origineel": true,
     "is_aangevuld": false,
     "is_favoriet_bron": false
+  },
+  {
+    "id": "kip_kerrie_bloemkool",
+    "naam": "Kip-kerrieschotel met bloemkool en rijst",
+    "categorie": "kip",
+    "kooktijd_min": 25,
+    "porties": 2.5,
+    "vegetarisch": false,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {
+        "product": "kipfilet",
+        "hoeveelheid": 312,
+        "eenheid": "g",
+        "categorie": "vlees",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "bloemkoolroosjes",
+        "hoeveelheid": 500,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "winterwortel",
+        "hoeveelheid": 188,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "ui",
+        "hoeveelheid": 125,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "kerriepasta",
+        "hoeveelheid": 38,
+        "eenheid": "g",
+        "categorie": "saus",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "kokosmelk",
+        "hoeveelheid": 250,
+        "eenheid": "ml",
+        "categorie": "overig",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "rijst",
+        "hoeveelheid": 188,
+        "eenheid": "g",
+        "categorie": "overig",
+        "groente": false,
+        "biologisch": false
+      }
+    ],
+    "stappen": [
+      "Kook de rijst volgens de verpakking.",
+      "Fruit de ui, voeg de kerriepasta toe en bak kort mee.",
+      "Voeg de kipblokjes toe en bak rondom aan.",
+      "Doe bloemkool, wortel en kokosmelk erbij en laat 12-15 min zachtjes garen.",
+      "Serveer met de rijst."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": "",
+    "groente_per_persoon": 325,
+    "voldeed_origineel": true,
+    "is_aangevuld": false,
+    "is_favoriet_bron": false
   }
 ]
