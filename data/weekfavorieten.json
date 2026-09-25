@@ -139,5 +139,77 @@
     "voldeed_origineel": true,
     "is_aangevuld": false,
     "is_favoriet_bron": false
+  },
+  {
+    "id": "rund_mexicaanse_pan",
+    "naam": "Mexicaanse pan met gehakt en paprika",
+    "categorie": "rund",
+    "kooktijd_min": 20,
+    "porties": 2.5,
+    "vegetarisch": false,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {
+        "product": "rundergehakt",
+        "hoeveelheid": 312,
+        "eenheid": "g",
+        "categorie": "vlees",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "paprika",
+        "hoeveelheid": 312,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "mais",
+        "hoeveelheid": 125,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "tortillawraps",
+        "hoeveelheid": 5,
+        "eenheid": "stuk",
+        "categorie": "overig",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "taco-kruidenmix",
+        "hoeveelheid": 25,
+        "eenheid": "g",
+        "categorie": "kruiden",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "geraspte kaas",
+        "hoeveelheid": 75,
+        "eenheid": "g",
+        "categorie": "zuivel",
+        "groente": false,
+        "biologisch": false
+      }
+    ],
+    "stappen": [
+      "Bak gehakt met kruidenmix.",
+      "Voeg paprika en mais toe.",
+      "Verwarm de wraps.",
+      "Vul en bestrooi met kaas."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": "",
+    "groente_per_persoon": 175,
+    "voldeed_origineel": true,
+    "is_aangevuld": false,
+    "is_favoriet_bron": false
   }
 ]
