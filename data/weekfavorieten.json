@@ -223,5 +223,85 @@
     "voldeed_origineel": true,
     "is_aangevuld": false,
     "is_favoriet_bron": true
+  },
+  {
+    "id": "kip_shoarma_wraps",
+    "naam": "Kip-shoarma met groente in wraps",
+    "categorie": "kip",
+    "kooktijd_min": 20,
+    "porties": 2.5,
+    "vegetarisch": false,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {
+        "product": "kipdijfilet",
+        "hoeveelheid": 312,
+        "eenheid": "g",
+        "categorie": "vlees",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "shoarmakruiden",
+        "hoeveelheid": 19,
+        "eenheid": "g",
+        "categorie": "kruiden",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "paprika",
+        "hoeveelheid": 250,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "ui",
+        "hoeveelheid": 125,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "ijsbergsla",
+        "hoeveelheid": 150,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "tortillawraps",
+        "hoeveelheid": 5,
+        "eenheid": "stuk",
+        "categorie": "overig",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "knoflooksaus",
+        "hoeveelheid": 50,
+        "eenheid": "g",
+        "categorie": "saus",
+        "groente": false,
+        "biologisch": false
+      }
+    ],
+    "stappen": [
+      "Meng de kipreepjes met de shoarmakruiden.",
+      "Bak de kip met paprika en ui in 8-10 minuten gaar.",
+      "Warm de wraps kort op.",
+      "Vul de wraps met kip, sla en knoflooksaus."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": "",
+    "groente_per_persoon": 210,
+    "voldeed_origineel": true,
+    "is_aangevuld": false,
+    "is_favoriet_bron": false
   }
 ]
