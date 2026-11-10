@@ -78,5 +78,65 @@
     "voldeed_origineel": true,
     "is_aangevuld": false,
     "is_favoriet_bron": false
+  },
+  {
+    "id": "zalm_pasta_pesto",
+    "naam": "Zalm met pestopasta en spinazie",
+    "categorie": "zalm",
+    "kooktijd_min": 20,
+    "porties": 2,
+    "vegetarisch": false,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {
+        "product": "zalmfilet",
+        "hoeveelheid": 200,
+        "eenheid": "g",
+        "categorie": "vis",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "pasta",
+        "hoeveelheid": 160,
+        "eenheid": "g",
+        "categorie": "pasta",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "pesto",
+        "hoeveelheid": 60,
+        "eenheid": "g",
+        "categorie": "saus",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "spinazie",
+        "hoeveelheid": 200,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "cherrytomaten",
+        "hoeveelheid": 150,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      }
+    ],
+    "stappen": [
+      "Kook de pasta.",
+      "Bak de zalm en breek in stukken.",
+      "Meng pasta met pesto, spinazie en tomaten.",
+      "Leg de zalm erbovenop."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": ""
   }
 ]
