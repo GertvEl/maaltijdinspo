@@ -134,5 +134,66 @@
     "voldeed_origineel": true,
     "is_aangevuld": false,
     "is_favoriet_bron": false
+  },
+  {
+    "id": "groene_curry_tofu",
+    "naam": "Groene curry met tofu en wokgroente",
+    "categorie": "vegetarisch",
+    "kooktijd_min": 20,
+    "porties": 2,
+    "vegetarisch": true,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {
+        "product": "tofu",
+        "hoeveelheid": 200,
+        "eenheid": "g",
+        "categorie": "overig",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "wokgroente",
+        "hoeveelheid": 400,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "groene currypasta",
+        "hoeveelheid": 40,
+        "eenheid": "g",
+        "categorie": "saus",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "kokosmelk",
+        "hoeveelheid": 250,
+        "eenheid": "ml",
+        "categorie": "overig",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "rijst",
+        "hoeveelheid": 150,
+        "eenheid": "g",
+        "categorie": "overig",
+        "groente": false,
+        "biologisch": false
+      }
+    ],
+    "stappen": [
+      "Kook de rijst.",
+      "Bak de tofublokjes goudbruin en houd apart.",
+      "Verwarm de currypasta kort, voeg kokosmelk toe.",
+      "Voeg wokgroente en tofu toe en laat 6-8 min garen.",
+      "Serveer met de rijst."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": ""
   }
 ]
