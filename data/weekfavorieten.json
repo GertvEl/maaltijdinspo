@@ -70,5 +70,69 @@
     "voldeed_origineel": true,
     "is_aangevuld": false,
     "is_favoriet_bron": false
+  },
+  {
+    "id": "kip_teriyaki",
+    "naam": "Kip Teriyaki met Sperziebonen",
+    "categorie": "kip",
+    "kooktijd_min": 20,
+    "porties": 2.5,
+    "vegetarisch": false,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {
+        "product": "kipdijfilet",
+        "hoeveelheid": 312,
+        "eenheid": "g",
+        "categorie": "vlees",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "sperziebonen (diepvries)",
+        "hoeveelheid": 312,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "wortel",
+        "hoeveelheid": 188,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "teriyakisaus",
+        "hoeveelheid": 62,
+        "eenheid": "ml",
+        "categorie": "saus",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "rijst",
+        "hoeveelheid": 188,
+        "eenheid": "g",
+        "categorie": "overig",
+        "groente": false,
+        "biologisch": false
+      }
+    ],
+    "stappen": [
+      "Kook de rijst.",
+      "Bak de kip, voeg wortel en sperziebonen toe.",
+      "Voeg teriyakisaus toe en laat 3-4 min karamelliseren.",
+      "Serveer met rijst."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": "",
+    "groente_per_persoon": 200,
+    "voldeed_origineel": true,
+    "is_aangevuld": false,
+    "is_favoriet_bron": false
   }
 ]
