@@ -195,5 +195,77 @@
     "bron": "Lokaal",
     "bron_url": "",
     "afbeelding_url": ""
+  },
+  {
+    "id": "kip_nasi_sperziebonen",
+    "naam": "Nasi met kip en sperziebonen",
+    "categorie": "kip",
+    "kooktijd_min": 20,
+    "porties": 2.5,
+    "vegetarisch": false,
+    "groente_hoofdingredient": false,
+    "ingredienten": [
+      {
+        "product": "kipfilet",
+        "hoeveelheid": 312,
+        "eenheid": "g",
+        "categorie": "vlees",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "rijst",
+        "hoeveelheid": 188,
+        "eenheid": "g",
+        "categorie": "overig",
+        "groente": false,
+        "biologisch": false
+      },
+      {
+        "product": "sperziebonen",
+        "hoeveelheid": 250,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "paprika",
+        "hoeveelheid": 188,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "ui",
+        "hoeveelheid": 125,
+        "eenheid": "g",
+        "categorie": "groente",
+        "groente": true,
+        "biologisch": false
+      },
+      {
+        "product": "sojasaus",
+        "hoeveelheid": 38,
+        "eenheid": "ml",
+        "categorie": "saus",
+        "groente": false,
+        "biologisch": false
+      }
+    ],
+    "stappen": [
+      "Kook de rijst volgens de verpakking.",
+      "Bak de kipfilet in een koekenpan gaar.",
+      "Roerbak de sperziebonen, paprika en ui kort mee.",
+      "Voeg de sojasaus toe en serveer met de rijst."
+    ],
+    "bron": "Lokaal",
+    "bron_url": "",
+    "afbeelding_url": "",
+    "groente_per_persoon": 225,
+    "voldeed_origineel": true,
+    "is_aangevuld": false,
+    "is_favoriet_bron": false
   }
 ]
